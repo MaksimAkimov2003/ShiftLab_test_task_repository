@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ShiftLab_test_task</string>
+    <string name="registration_tittle">Регистрация</string>
+    <string name="registration">Загегистрироваться</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
 </resources>
