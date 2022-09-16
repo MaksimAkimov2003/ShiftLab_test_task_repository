@@ -7,4 +7,7 @@
     <string name="repeat_password">Repeat password</string>
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
+    <string name="restore_data">Последние данные</string>
+    <string name="main_screen_tittle">Главный экран</string>
+    <string name="demonstrate_user_data">Показать приветствие</string>
 </resources>

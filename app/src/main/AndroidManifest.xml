@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ShiftLab_test_task"
         tools:targetApi="31">
         <activity
+            android:name=".MainScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistrationActivity"
             android:exported="true">
             <intent-filter>
