@@ -1,4 +1,4 @@
-package com.example.shiftlab_test_task
+package com.example.shiftlab_test_task.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
