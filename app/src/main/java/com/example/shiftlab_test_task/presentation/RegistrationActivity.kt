@@ -3,9 +3,12 @@ package com.example.shiftlab_test_task.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.shiftlab_test_task.R
 import com.example.shiftlab_test_task.databinding.ActivityRegistrationBinding
+import com.google.android.material.textfield.TextInputEditText
 import domain.models.UserData
 
 class RegistrationActivity : AppCompatActivity() {
@@ -16,8 +19,6 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        Log.e("life_cycle", "Activity created")
 
         viewModelRegistration = ViewModelProvider(this, RegistrationViewModelFactory(this))
             .get(RegistrationViewModel::class.java)
@@ -43,15 +44,5 @@ class RegistrationActivity : AppCompatActivity() {
         binding.buttonRestoreData.setOnClickListener {
             viewModelRegistration.load()
         }
-    }
-
-    override fun onStop() {
-        Log.e("life_cycle", "Activity stopped")
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        Log.e("life_cycle", "Activity destroyed")
-        super.onDestroy()
     }
 }

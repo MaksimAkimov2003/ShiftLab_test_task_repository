@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import data.repository.UserRepositoryImpl
+import domain.use.CheckUserDataValidationUseCase
 import domain.use.GetUserDataUseCase
 import domain.use.SaveUserDataUseCase
 
@@ -20,7 +21,12 @@ class RegistrationViewModelFactory(context: Context): ViewModelProvider.Factory 
         SaveUserDataUseCase(userRepository = userRepository)
     }
 
+    private val checkUserDataValidationUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        CheckUserDataValidationUseCase()
+    }
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RegistrationViewModel(getUserDataUseCase = getUserDataUseCase, saveUserDataUseCase = saveUserDataUseCase) as T
+        return RegistrationViewModel(getUserDataUseCase = getUserDataUseCase, saveUserDataUseCase = saveUserDataUseCase,
+            checkUserDataValidationUseCase = checkUserDataValidationUseCase) as T
     }
 }

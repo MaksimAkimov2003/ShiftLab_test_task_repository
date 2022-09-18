@@ -1,16 +1,17 @@
 package data.repository
 
 import android.content.Context
+import com.example.shiftlab_test_task.R
 import domain.models.UserData
 import domain.repository.UserRepository
 
 class UserRepositoryImpl(context: Context): UserRepository {
     private companion object SharedPrefsInformation {
-        private val SHARED_PREFS_NAME = "shared_prefs_user_data"
-        private val KEY_USER_NAME = "user_name"
-        private val KEY_USER_SURNAME = "user_surname"
-        private val KEY_USER_EMAIL = "user_email"
-        private val KEY_USER_PASSWORD = "user_password"
+        private const val SHARED_PREFS_NAME = R.string.SHARED_PREFS_NAME.toString()
+        private const val KEY_USER_NAME = R.string.KEY_USER_NAME.toString()
+        private const val KEY_USER_SURNAME = R.string.KEY_USER_SURNAME.toString()
+        private const val KEY_USER_EMAIL = R.string.KEY_USER_EMAIL.toString()
+        private const val KEY_USER_PASSWORD = R.string.KEY_USER_PASSWORD.toString()
     }
 
     private val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)

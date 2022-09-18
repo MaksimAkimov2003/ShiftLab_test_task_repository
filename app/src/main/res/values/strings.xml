@@ -10,4 +10,15 @@
     <string name="restore_data">Последние данные</string>
     <string name="main_screen_tittle">Главный экран</string>
     <string name="demonstrate_user_data">Показать приветствие</string>
+
+    <string name="SHARED_PREFS_NAME">shared_prefs_user_data</string>
+    <string name="KEY_USER_NAME">user_name</string>
+    <string name="KEY_USER_SURNAME">user_surname</string>
+    <string name="KEY_USER_EMAIL">user_email</string>
+    <string name="KEY_USER_PASSWORD">user_password</string>
+    <string name="empty_field">Заполните поле!</string>
+    <string name="invalid_name_message">Имя должно начинаться с заглавной буквы, длина имени - не менее двух букв</string>
+    <string name="invalid_surname_message">Фамилия должна начинаться с заглавной буквы, длина фамилии - не менее двух букв</string>
+    <string name="invalid_email_message">Email должен содержать символ @, заканчиваться на .com или .ru</string>
+    <string name="invalid_password_message">Пароль должен содержать строчные и прописные латинские буквы, цифры</string>
 </resources>
