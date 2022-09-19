@@ -3,6 +3,7 @@ package com.example.shiftlab_test_task.presentation
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import domain.models.InvalidUserDataTypes
 import domain.models.UserData
 import domain.use.CheckUserDataValidationUseCase
 import domain.use.GetUserDataUseCase
@@ -25,19 +26,14 @@ class RegistrationViewModel(
         liveData.value = userData
     }
 
-    fun checkName(name: String): Boolean {
-        return checkUserDataValidationUseCase.checkNameValidation(name = name)
-    }
+    fun searchIncorrectData(userData: UserData): InvalidUserDataTypes? {
+        val invalidUserDataTypes = checkUserDataValidationUseCase.validationAllData(userData = userData)
 
-    fun checkSurname(surname: String): Boolean {
-        return checkUserDataValidationUseCase.checkSurnameValidation(surname = surname)
-    }
-
-    fun checkEmail(email: String): Boolean {
-        return checkUserDataValidationUseCase.checkEmailValidation(email = email)
-    }
-
-    fun checkPassword(password: String): Boolean {
-        return checkUserDataValidationUseCase.checkPasswordValidation(password = password)
+        return if (!invalidUserDataTypes.isNameValidateError && !invalidUserDataTypes.isSurnameValidateError
+            && !invalidUserDataTypes.isEmailValidateError && !invalidUserDataTypes.isPasswordValidateError)
+            null
+        else {
+            invalidUserDataTypes
+        }
     }
 }

@@ -1,5 +1,8 @@
 package domain.use
 
+import domain.models.InvalidUserDataTypes
+import domain.models.UserData
+
 class CheckUserDataValidationUseCase {
 
     private companion object {
@@ -8,31 +11,41 @@ class CheckUserDataValidationUseCase {
         val PASSWORD_REGEX = Regex("""^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*${'$'}""")
     }
 
-    fun isValidAllData(): Boolean {
-        TODO("Прописать этот метод")
+    fun validationAllData(userData: UserData): InvalidUserDataTypes {
+        lateinit var invalidUserDataTypes: InvalidUserDataTypes
+
+        val isNameValidateError = checkNameErrors(userData.userName)
+        val isSurnameValidateError = checkSurnameErrors(userData.userSurname)
+        val isEmailValidateError = checkEmailErrors(userData.userEmail)
+        val isPasswordValidateError = checkPasswordErrors(userData.userPassword)
+
+        invalidUserDataTypes = InvalidUserDataTypes(isNameValidateError = isNameValidateError, isSurnameValidateError = isSurnameValidateError,
+        isEmailValidateError = isEmailValidateError, isPasswordValidateError = isPasswordValidateError)
+
+        return invalidUserDataTypes
     }
 
-    fun checkNameValidation(name: String): Boolean {
-        if (!name.matches(NAME_AND_SURNAME_REGEX)) return false
+    private fun checkNameErrors(name: String): Boolean {
+        if (!name.matches(NAME_AND_SURNAME_REGEX)) return true
 
-        return true
+        return false
     }
 
-    fun checkSurnameValidation(surname: String): Boolean {
-        if (!surname.matches(NAME_AND_SURNAME_REGEX)) return false
+    private fun checkSurnameErrors(surname: String): Boolean {
+        if (!surname.matches(NAME_AND_SURNAME_REGEX)) return true
 
-        return true
+        return false
     }
 
-    fun checkEmailValidation(email: String): Boolean {
-        if (!email.matches(EMAIL_REGEX)) return false
+    private fun checkEmailErrors(email: String): Boolean {
+        if (!email.matches(EMAIL_REGEX)) return true
 
-        return true
+        return false
     }
 
-    fun checkPasswordValidation(password: String): Boolean {
-        if (!password.matches(PASSWORD_REGEX)) return false
+    private fun checkPasswordErrors(password: String): Boolean {
+        if (!password.matches(PASSWORD_REGEX)) return true
 
-        return true
+        return false
     }
 }
