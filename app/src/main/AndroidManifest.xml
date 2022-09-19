@@ -13,10 +13,10 @@
         android:theme="@style/Theme.ShiftLab_test_task"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainScreenActivity"
+            android:name=".presentation.MainScreenActivityPresentation.MainScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.RegistrationActivity"
+            android:name=".presentation.RegistrationActivityPresentation.RegistrationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

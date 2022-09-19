@@ -1,13 +1,13 @@
-package com.example.shiftlab_test_task.presentation
+package com.example.shiftlab_test_task.presentation.RegistrationActivityPresentation
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.shiftlab_test_task.R
 import com.example.shiftlab_test_task.databinding.ActivityRegistrationBinding
+import com.example.shiftlab_test_task.presentation.MainScreenActivityPresentation.MainScreenActivity
 import data.repository.UserRepositoryImpl.SharedPrefsInformation.KEY_USER_PASSWORD
 import data.repository.UserRepositoryImpl.SharedPrefsInformation.SHARED_PREFS_USER
 import domain.models.InvalidUserDataTypes
@@ -23,14 +23,11 @@ class RegistrationActivity : AppCompatActivity() {
         val sharedPrefsUser = getSharedPreferences(SHARED_PREFS_USER, MODE_PRIVATE)
 
 
-        sharedPrefsUser.edit().clear().apply() // убери это
-
         val savedPassword = sharedPrefsUser.getString(KEY_USER_PASSWORD, "")
 
         val intent = Intent(this, MainScreenActivity::class.java)
 
         if (savedPassword != "") {
-            Log.e("CCC", savedPassword.toString())
             startActivity(intent)
         }
 
@@ -78,12 +75,10 @@ class RegistrationActivity : AppCompatActivity() {
                 viewModelRegistration.load()
             }
         }
-
     }
 
     private fun showUsersErrors(invalidUserDataTypes: InvalidUserDataTypes) {
         if (invalidUserDataTypes.isNameValidateError) {
-            Log.e("Debug", "name = incorrect")
             binding.nameTextInputLayout.error = getString(R.string.invalid_name_message)
         }
 
@@ -92,7 +87,6 @@ class RegistrationActivity : AppCompatActivity() {
         }
 
         if (invalidUserDataTypes.isSurnameValidateError) {
-            Log.e("Debug", "surname = incorrect")
             binding.surnameTextInputLayout.error = getString(R.string.invalid_surname_message)
         }
 
@@ -101,7 +95,6 @@ class RegistrationActivity : AppCompatActivity() {
         }
 
         if (invalidUserDataTypes.isEmailValidateError) {
-            Log.e("Debug", "email = incorrect")
             binding.emailTextInputLayout.error = getString(R.string.invalid_email_message)
         }
 
@@ -110,7 +103,6 @@ class RegistrationActivity : AppCompatActivity() {
         }
 
         if (invalidUserDataTypes.isPasswordValidateError) {
-            Log.e("Debug", "password = incorrect")
             binding.passwordTextInputLayout.error = getString(R.string.invalid_password_message)
         }
 

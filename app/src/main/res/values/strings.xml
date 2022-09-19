@@ -11,6 +11,7 @@
     <string name="main_screen_tittle">Главный экран</string>
     <string name="demonstrate_user_data">Показать приветствие</string>
 
+    <string name="SHARED_PREFS_RESTORE">shared_prefs_restore</string>
     <string name="SHARED_PREFS_USER">shared_prefs_user</string>
     <string name="KEY_USER_NAME">user_name</string>
     <string name="KEY_USER_SURNAME">user_surname</string>
