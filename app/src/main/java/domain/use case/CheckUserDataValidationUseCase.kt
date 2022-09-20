@@ -28,13 +28,13 @@ class CheckUserDataValidationUseCase {
     }
 
     private fun checkNameErrors(name: String): Boolean {
-        if (!name.matches(NAME_AND_SURNAME_REGEX)) return true
+        if (!name.matches(NAME_AND_SURNAME_REGEX) || name.length < 2) return true
 
         return false
     }
 
     private fun checkSurnameErrors(surname: String): Boolean {
-        if (!surname.matches(NAME_AND_SURNAME_REGEX)) return true
+        if (!surname.matches(NAME_AND_SURNAME_REGEX) || surname.length < 2) return true
 
         return false
     }
