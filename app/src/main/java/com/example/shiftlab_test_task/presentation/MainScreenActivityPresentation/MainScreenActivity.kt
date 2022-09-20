@@ -27,7 +27,8 @@ class MainScreenActivity : AppCompatActivity() {
 
         viewModelMainScreen.liveData.observe(this, Observer {
             val alertTittle = "Здравствуйте, " + it.userName + "\n" + "Данные вашего аккаунта:"
-            val alertMessage = "Пароль: " + it.userPassword + "\n" + "Email: " + it.userEmail
+            val alertMessage = "Пароль: " + it.userPassword + "\n" + "Email: " + it.userEmail + "\n" + "Вы можете выйти из аккаунта, нажав на крестик сверху." + "\n" +
+                    "Затем вы сможете восстановить данные, нажав на кнопку <Последние данные>"
 
             builderAlertDialog.setTitle(alertTittle)
             builderAlertDialog.setMessage(alertMessage)

@@ -36,5 +36,6 @@
     <string name="birthday_value">01.01.2003</string>
     <string name="invalid_password_repeat_message">Пароли не совпадают</string>
     <string name="KEY_USER_PASSWORD_REPEAT">user_password_repeat</string>
+    <string name="neutral_button_alert_dialog_text">Ясно</string>
 
 </resources>
