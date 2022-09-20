@@ -1,6 +1,5 @@
 package com.example.shiftlab_test_task.presentation.RegistrationActivityPresentation
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import domain.models.InvalidUserDataTypes

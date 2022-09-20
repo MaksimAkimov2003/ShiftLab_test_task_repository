@@ -1,19 +1,14 @@
 package com.example.shiftlab_test_task.presentation.MainScreenActivityPresentation
 
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.shiftlab_test_task.databinding.ActivityMainScreenBinding
 import com.example.shiftlab_test_task.presentation.RegistrationActivityPresentation.RegistrationActivity
-import com.example.shiftlab_test_task.presentation.RegistrationActivityPresentation.RegistrationViewModel
-import com.example.shiftlab_test_task.presentation.RegistrationActivityPresentation.RegistrationViewModelFactory
 import data.repository.UserRepositoryImpl
 
 class MainScreenActivity : AppCompatActivity() {
@@ -26,7 +21,6 @@ class MainScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val builderAlertDialog = AlertDialog.Builder(this)
-
 
         viewModelMainScreen = ViewModelProvider(this, MainScreenViewModelFactory(this))
             .get(MainScreenViewModel::class.java)
@@ -54,6 +48,5 @@ class MainScreenActivity : AppCompatActivity() {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

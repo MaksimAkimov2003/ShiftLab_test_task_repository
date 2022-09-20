@@ -23,4 +23,16 @@
     <string name="invalid_surname_message">Фамилия должна начинаться с заглавной буквы, длина фамилии - не менее двух букв</string>
     <string name="invalid_email_message">Email должен содержать символ @, заканчиваться на .com или .ru</string>
     <string name="invalid_password_message">Пароль должен содержать строчные и прописные латинские буквы, цифры</string>
+    <string name="no_saved_data">Нет сохраненных данных</string>
+    <string name="choose_data_of_borth_type">Выберите дату рождения</string>
+    <string name="button_Ok_tittle">Ок</string>
+    <string name="button_cancel_tittle">Отмена</string>
+    <string name="name_field">Имя</string>
+    <string name="surname_field">Фамилия</string>
+    <string name="email_field">Email</string>
+    <string name="password_field">Пароль</string>
+    <string name="repeat_password_field">Повторите пароль</string>
+    <string name="birthday_tiitle">Дата рождения</string>
+    <string name="birthday_value">01.01.2003</string>
+
 </resources>
