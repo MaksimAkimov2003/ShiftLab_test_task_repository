@@ -13,6 +13,8 @@ import com.example.shiftlab_test_task.databinding.ActivityRegistrationBinding
 import com.example.shiftlab_test_task.databinding.BottomSheetDataPickerBinding
 import com.example.shiftlab_test_task.presentation.MainScreenActivityPresentation.MainScreenActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import data.repository.UserRepositoryImpl.SharedPrefsInformation.KEY_USER_PASSWORD
 import data.repository.UserRepositoryImpl.SharedPrefsInformation.SHARED_PREFS_RESTORE
 import data.repository.UserRepositoryImpl.SharedPrefsInformation.SHARED_PREFS_USER
@@ -48,6 +50,7 @@ class RegistrationActivity : AppCompatActivity() {
                 binding.surname.setText(it.userSurname)
                 binding.email.setText(it.userEmail)
                 binding.password.setText(it.userPassword)
+                binding.passwordRepeat.setText(it.userPasswordRepeat)
             })
 
             binding.dataBorth.setOnClickListener {
@@ -78,6 +81,7 @@ class RegistrationActivity : AppCompatActivity() {
 
                 else {
                     showUsersErrors(invalideUserDataTypes)
+                    addOnFocuseChangeListenerCall()
                 }
             }
 
@@ -139,6 +143,20 @@ class RegistrationActivity : AppCompatActivity() {
 
         else {
             binding.passwordRepeatTextInputLayout.error = null
+        }
+    }
+
+    private fun addOnFocuseChangeListenerCall() {
+        addOnFocuseChangeListener(binding.name, binding.nameTextInputLayout)
+        addOnFocuseChangeListener(binding.surname, binding.surnameTextInputLayout)
+        addOnFocuseChangeListener(binding.email, binding.emailTextInputLayout)
+        addOnFocuseChangeListener(binding.password, binding.passwordTextInputLayout)
+        addOnFocuseChangeListener(binding.passwordRepeat, binding.passwordRepeatTextInputLayout)
+    }
+
+    private fun addOnFocuseChangeListener(textInputEditText: TextInputEditText, textInputLayout: TextInputLayout) {
+        textInputEditText.setOnFocusChangeListener { view, focused ->
+            if (focused) textInputLayout.error = null
         }
     }
 
