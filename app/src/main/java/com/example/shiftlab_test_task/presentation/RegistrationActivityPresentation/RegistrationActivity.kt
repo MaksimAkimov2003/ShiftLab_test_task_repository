@@ -59,12 +59,14 @@ class RegistrationActivity : AppCompatActivity() {
                 val userSurname = binding.surname.text.toString()
                 val userEmail = binding.email.text.toString()
                 val userPassword = binding.password.text.toString()
+                val userPasswordRepeat = binding.passwordRepeat.text.toString()
 
                 val userData = UserData(
                     userName = userName,
                     userSurname = userSurname,
                     userEmail = userEmail,
-                    userPassword = userPassword
+                    userPassword = userPassword,
+                    userPasswordRepeat = userPasswordRepeat
                 )
 
                 val invalideUserDataTypes = viewModelRegistration.searchIncorrectData(userData = userData)
@@ -130,6 +132,14 @@ class RegistrationActivity : AppCompatActivity() {
         else {
             binding.passwordTextInputLayout.error = null
         }
+
+        if (invalidUserDataTypes.isPasswordRepeateValidateError) {
+            binding.passwordRepeatTextInputLayout.error = getString(R.string.invalid_password_repeat_message)
+        }
+
+        else {
+            binding.passwordRepeatTextInputLayout.error = null
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -160,7 +170,6 @@ class RegistrationActivity : AppCompatActivity() {
             val dayString = convertDay(bottomSheetBinding.day.value)
             val mounthString = convertMounth(bottomSheetBinding.mounth.value)
             val yearString = bottomSheetBinding.year.value.toString()
-
 
             binding.dataBorth.text = "$dayString.$mounthString.$yearString"
 

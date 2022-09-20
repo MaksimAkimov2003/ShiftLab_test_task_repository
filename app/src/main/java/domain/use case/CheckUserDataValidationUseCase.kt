@@ -18,9 +18,11 @@ class CheckUserDataValidationUseCase {
         val isSurnameValidateError = checkSurnameErrors(userData.userSurname)
         val isEmailValidateError = checkEmailErrors(userData.userEmail)
         val isPasswordValidateError = checkPasswordErrors(userData.userPassword)
+        val isPasswordRepeateValidateError = checkPasswordRepeateErrors(passwordRepeat = userData.userPasswordRepeat,
+            password = userData.userPassword)
 
         invalidUserDataTypes = InvalidUserDataTypes(isNameValidateError = isNameValidateError, isSurnameValidateError = isSurnameValidateError,
-        isEmailValidateError = isEmailValidateError, isPasswordValidateError = isPasswordValidateError)
+        isEmailValidateError = isEmailValidateError, isPasswordValidateError = isPasswordValidateError, isPasswordRepeateValidateError = isPasswordRepeateValidateError)
 
         return invalidUserDataTypes
     }
@@ -45,6 +47,12 @@ class CheckUserDataValidationUseCase {
 
     private fun checkPasswordErrors(password: String): Boolean {
         if (!password.matches(PASSWORD_REGEX)) return true
+
+        return false
+    }
+
+    private fun checkPasswordRepeateErrors(passwordRepeat: String, password: String): Boolean {
+        if (passwordRepeat != password) return true
 
         return false
     }

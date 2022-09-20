@@ -29,7 +29,7 @@ class RegistrationViewModel(
         val invalidUserDataTypes = checkUserDataValidationUseCase.validationAllData(userData = userData)
 
         return if (!invalidUserDataTypes.isNameValidateError && !invalidUserDataTypes.isSurnameValidateError
-            && !invalidUserDataTypes.isEmailValidateError && !invalidUserDataTypes.isPasswordValidateError)
+            && !invalidUserDataTypes.isEmailValidateError && !invalidUserDataTypes.isPasswordValidateError && !invalidUserDataTypes.isPasswordRepeateValidateError)
             null
         else {
             invalidUserDataTypes

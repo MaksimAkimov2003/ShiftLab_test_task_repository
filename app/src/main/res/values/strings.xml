@@ -34,5 +34,7 @@
     <string name="repeat_password_field">Повторите пароль</string>
     <string name="birthday_tiitle">Дата рождения</string>
     <string name="birthday_value">01.01.2003</string>
+    <string name="invalid_password_repeat_message">Пароли не совпадают</string>
+    <string name="KEY_USER_PASSWORD_REPEAT">user_password_repeat</string>
 
 </resources>
